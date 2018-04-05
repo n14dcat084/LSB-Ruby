@@ -3,7 +3,8 @@ require 'rmagick'
 
 
 
-class Integer # chuyen doi tu thap phan sang nhi phan
+# chuyen doi tu thap phan sang nhi phan
+class Integer 
   def to_bin(width)
     '%0*b' % [width, self]
   end
@@ -19,16 +20,17 @@ class Encode
 	
 	end
 	
-
-	def converse_bit(pixel) # chuyen RGB 16 bit ve 8bit
+# chuyen RGB 16 bit ve 8bit
+	def converse_bit(pixel) 
 		pixel.red /= 257
 		pixel.green /= 257
 		pixel.blue /= 257
 		
 	end
 	
-	
-	def ChenThongDiep (pixel) # chen thong diep dang bit vao trong RGB
+
+ # chen Messesage dang bit vao trong RGB	
+	def ChenThongDiep (pixel)
 			
 			red = pixel.red.to_bin(8).chars #pixel.red kieu integer -> nhi phan -> array char
 			red[7] = @thongdiep[@dem] # chen 1 bit cua thong diep vao bit cuoi cua pixel.red
